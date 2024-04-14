@@ -26,6 +26,25 @@ int main(int argc, char* argv[])
             std::cout << "Couldn't open file\n";
             }
         }
+
+        if(strcmp(argv[i],"-w") == 0){
+
+            std::ifstream myfile;
+            myfile.open(argv[i+1]);
+            std::string myline;
+            int countOfWords = 0;
+            if ( myfile.is_open() ) {
+                while ( myfile ) { // equivalent to myfile.good()
+                string myLine;
+                myfile >> myLine;
+                countOfWords++;
+                }
+            cout << countOfWords-1 << " " << argv[i+1] << endl;
+            }
+            else {
+            std::cout << "Couldn't open file\n";
+            }
+        }
     }
  
     return 0;
