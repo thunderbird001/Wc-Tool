@@ -45,6 +45,25 @@ int main(int argc, char* argv[])
             std::cout << "Couldn't open file\n";
             }
         }
+
+        if(strcmp(argv[i],"-m") == 0){
+
+            std::ifstream myfile;
+            myfile.open(argv[i+1]);
+            std::string myline;
+            int countOfChar = 0;
+            if ( myfile.is_open() ) {
+                while ( myfile ) {
+                    char myChar = myfile.get();
+                    if (myChar!= '\n')
+                    countOfChar++;
+                }
+                cout << countOfChar << " " << argv[i+1] << endl; // no need to subtract 1
+            }
+            else {
+            std::cout << "Couldn't open file\n";
+            }
+        }
     }
  
     return 0;
